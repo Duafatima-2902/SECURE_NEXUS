@@ -1,1 +1,2 @@
-pip install fastapi uvicorn[standard] jinja2 python-dotenv requests google-generativeai validators python-multipart zapv2 reportlab
+pip install fastapi uvicorn jinja2 python-dotenv requests google-generativeai validators python-multipart zapv2 reportlab
+
