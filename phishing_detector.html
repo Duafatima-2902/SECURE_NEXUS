@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Phishing Detection - SecureNexus</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script>
+        async function checkPhishing() {
+            const message = document.getElementById('inputMessage').value.trim();
+            if (!message) {
+                alert('Please paste a message before submitting.');
+                return;
+            }
+            setResult('Analyzing...');
+            try {
+                const response = await fetch('/api/phishing-check', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message })
+                });
+                const data = await response.json();
+                if (data.error) {
+                    setResultError(data.error);
+                } else {
+                    setResult(formatResult(data.result));
+                }
+            } catch (e) {
+                setResultError(e.message);
+            }
+        }
+
+        function setResult(html) {
+            document.getElementById('resultArea').innerHTML = html;
+        }
+
+        function setResultError(message) {
+            setResult(`<p class="error">Error: ${escapeHtml(message)}</p>`);
+        }
+
+        function formatResult(text) {
+            return `<h2>Phishing Analysis Result</h2><pre>${escapeHtml(text)}</pre>`;
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/[&<>"']/g, m =>
+                ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m]
+            );
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Phishing Detection</h1>
+
+        <textarea id="inputMessage" placeholder="Paste suspicious email/message here..." rows="12"></textarea>
+
+        <button class="btn" id="submitBtn" onclick="checkPhishing()">Check Message</button>
+
+        <div id="resultArea" class="result-box"></div>
+
+        <a href="/" class="back-link">← Back to Home</a>
+    </div>
+</body>
+
+</html>

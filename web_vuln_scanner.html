@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Web Vulnerability Scan - SecureNexus</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script>
+        async function runScan(event) {
+            event.preventDefault();
+
+            const urlInput = document.getElementById("urlInput").value.trim();
+            if (!urlInput) {
+                alert("Please enter a URL.");
+                return;
+            }
+
+            const statusBox = document.getElementById("status");
+            const downloadLink = document.getElementById("downloadLink");
+            downloadLink.style.display = "none";
+            statusBox.style.color = "black";
+
+            const messages = [
+                "Spinning up the web spider 🕷️...",
+                "Crawling through your website's dark corners...",
+                "Checking for those sneaky vulnerabilities...",
+                "Summoning the cyber wizards to analyze your site...",
+                "Almost done... Just a few more incantations...",
+                "Wrapping up the scan, preparing your report..."
+            ];
+
+            let msgIndex = 0;
+            statusBox.textContent = messages[msgIndex];
+
+            const interval = setInterval(() => {
+                msgIndex++;
+                if (msgIndex < messages.length) {
+                    statusBox.textContent = messages[msgIndex];
+                }
+            }, 5000);
+
+            const formData = new FormData();
+            formData.append("url", urlInput);
+
+            try {
+                const response = await fetch("/scan-web", {
+                    method: "POST",
+                    body: formData
+                });
+
+                clearInterval(interval);
+
+                if (!response.ok) {
+                    statusBox.style.color = "red";
+                    statusBox.textContent = "Scan failed. Please try again.";
+                    return;
+                }
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+
+                downloadLink.href = url;
+                downloadLink.style.display = "inline-block";
+                downloadLink.textContent = "Download Scan Report PDF";
+
+                statusBox.style.color = "green";
+                statusBox.textContent = "Scan complete! Download your detailed report below.";
+
+            } catch (error) {
+                clearInterval(interval);
+                statusBox.style.color = "red";
+                statusBox.textContent = "Error during scan. Please try again.";
+            }
+        }
+
+        function goHome() {
+            window.location.href = "/";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Web Vulnerability Scanner</h1>
+
+        <form onsubmit="runScan(event)" class="scan-form">
+            <input type="text" id="urlInput" placeholder="Enter website URL" class="input-text" />
+            <button type="submit" class="btn">Run Scan</button>
+        </form>
+
+        <p id="status" class="status-text"></p>
+
+        <a id="downloadLink" href="#" class="download-link" download="SecureNexus_Scan_Report.pdf"></a>
+
+        <button class="btn back-btn" onclick="goHome()">← Back to Home</button>
+    </div>
+</body>
+
+</html>
