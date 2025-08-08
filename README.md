@@ -108,7 +108,7 @@ Enter a URL and run a web vulnerability scan. Download the generated PDF report 
 - Scan Duration: Web vulnerability scans may take several minutes depending on target site size.
 - Report Storage: PDF reports are temporarily stored in the system’s temporary directory.
 
-
+_____________________________________________________________________________________________
 - SECURE NEXUS
 <img width="1078" height="567" alt="image" src="https://github.com/user-attachments/assets/d19c3072-6d1c-4e93-90ef-973410fbca46" />
 
