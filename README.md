@@ -111,12 +111,12 @@ Enter a URL and run a web vulnerability scan. Download the generated PDF report 
 
 
 
-SECURE CODE ANALYSIS
+- SECURE CODE ANALYSIS
 <img width="676" height="802" alt="image" src="https://github.com/user-attachments/assets/5242dbde-c854-47de-873e-204d81362ded" />
 
-PHISHING DETECTION ANALYSIS
+- PHISHING DETECTION ANALYSIS
 <img width="695" height="807" alt="image" src="https://github.com/user-attachments/assets/7a6c9f80-d19a-469c-acca-e15378ca17bf" />
 
-WEB VULNERABILITY SCANNER
+- WEB VULNERABILITY SCANNER
 <img width="455" height="402" alt="image" src="https://github.com/user-attachments/assets/5a87dd2b-34da-4698-b10d-8e5d686b527c" />
 
