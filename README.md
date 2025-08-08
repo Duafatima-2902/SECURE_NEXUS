@@ -103,10 +103,10 @@ Paste email or message content to determine phishing risk.
 Enter a URL and run a web vulnerability scan. Download the generated PDF report upon completion.
 
 -Important Notes
-OWASP ZAP: Must be running locally with API enabled for web scanner functionality.
-API Keys: Ensure all API keys are valid and set correctly in the .env file.
-Scan Duration: Web vulnerability scans may take several minutes depending on target site size.
-Report Storage: PDF reports are temporarily stored in the system’s temporary directory.
+- OWASP ZAP: Must be running locally with API enabled for web scanner functionality.
+- API Keys: Ensure all API keys are valid and set correctly in the .env file.
+- Scan Duration: Web vulnerability scans may take several minutes depending on target site size.
+- Report Storage: PDF reports are temporarily stored in the system’s temporary directory.
 
 
 
