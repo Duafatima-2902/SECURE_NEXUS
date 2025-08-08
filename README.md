@@ -109,7 +109,8 @@ Enter a URL and run a web vulnerability scan. Download the generated PDF report 
 - Report Storage: PDF reports are temporarily stored in the system’s temporary directory.
 
 
-
+- SECURE NEXUS
+<img width="1078" height="567" alt="image" src="https://github.com/user-attachments/assets/d19c3072-6d1c-4e93-90ef-973410fbca46" />
 
 - SECURE CODE ANALYSIS
 <img width="676" height="802" alt="image" src="https://github.com/user-attachments/assets/5242dbde-c854-47de-873e-204d81362ded" />
