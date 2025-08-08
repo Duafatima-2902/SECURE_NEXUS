@@ -81,16 +81,16 @@ uvicorn main:app --host 127.0.0.1 --port 8080 --reload
 -> Navigate to http://127.0.0.1:8080
 
 Project Structure
-main.py — FastAPI application entry point; API routes and HTML rendering
-code_analyzer.py — AI-powered code security analysis logic
-phishing_detector.py — AI-based phishing detection logic
-web_vuln_scanner.py — OWASP ZAP API wrapper for website scanning
-zap_connection.py — Utility to verify ZAP API availability
-report_gen.py — PDF report generation for scan results
-templates/ — Jinja2 HTML templates for UI pages
-static/ — CSS and JavaScript files for frontend
-.env — Environment variables file (not committed to repo)
-requirements.txt — Python dependencies list
+1. main.py — FastAPI application entry point; API routes and HTML rendering
+2. code_analyzer.py — AI-powered code security analysis logic
+3. phishing_detector.py — AI-based phishing detection logic
+4. web_vuln_scanner.py — OWASP ZAP API wrapper for website scanning
+5. zap_connection.py — Utility to verify ZAP API availability
+6. report_gen.py — PDF report generation for scan results
+7. templates/ — Jinja2 HTML templates for UI pages
+9. static/ — CSS and JavaScript files for frontend
+10. .env — Environment variables file (not committed to repo)
+11. requirements.txt — Python dependencies list
 
 Usage
 -Code Analyzer:
